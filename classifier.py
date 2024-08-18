@@ -61,12 +61,14 @@ for i in categories:
     probs_per_category[i] /= sum_probs_per_category
 
 # Pretty output
-print("Input text: ")
+print("\nInput text: ")
 print(text)
-print("Probability by category, as found by naive bayes classification: ")
+print("\nProbability by category, as found by naive bayes classification: ")
 print(probs_per_category)
+print("\nInferred category: " + str(max(probs_per_category.keys(), key=lambda x: probs_per_category[x])))
 
-print("\n\n")
+# Show probability distribution for each word.
+print("\n\nProbability distribution by word:\n")
 for word in text.split(" "):
     stripped_word = remove_special_chars(word).lower()
     print(stripped_word + ":\t", end="")
